@@ -134,7 +134,7 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="63dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:onClick="selectImage"
             app:srcCompat="@android:drawable/ic_menu_camera" />
 
