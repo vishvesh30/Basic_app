@@ -14,13 +14,6 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".Main2Activity">
-            <intent-filter>
-                <action android:name="com.example.vishvraj.basic_app.Main2Activity" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity android:name=".SplashScreen"
                     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
            >
