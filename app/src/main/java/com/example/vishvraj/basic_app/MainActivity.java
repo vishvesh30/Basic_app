@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -60,15 +61,21 @@ public class MainActivity extends AppCompatActivity {
         menuInflater.inflate(R.menu.main_activity_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+    public void changecolor(){
 
+        setTheme(R.style.RedTheme);
+        setContentView(R.layout.activity_main);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.info:
                 Toast.makeText(getApplicationContext(), "Info selected", Toast.LENGTH_SHORT).show();
+                changecolor();
                 break;
             case R.id.theme:
                 Toast.makeText(getApplicationContext(), "Theme selected", Toast.LENGTH_SHORT).show();
+                changecolor();
                 break;
         }
         return super.onOptionsItemSelected(item);
