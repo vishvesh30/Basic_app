@@ -5,9 +5,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -17,7 +17,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -37,7 +41,14 @@ public class MainActivity extends AppCompatActivity {
     private String spinnerdata[];
     private static final int SELECT_PICTURE = 0;
     private ImageView imageview;
-
+    DatabaseHelper mydb;
+    EditText editname,editsurname,editemail,editpassword,editphnno;
+    Spinner citynames;
+    RadioButton male,female;
+    Button btnAddData;
+    CheckBox checkBox2,checkBox3,checkBox4,checkBox5;
+    File destination;
+    ImageView imgview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,22 +61,86 @@ public class MainActivity extends AppCompatActivity {
                 "Ahmedabad", "Surat", "Gandhinagar", "Vadodara", "Rajkot"
         };
         ivImage = (ImageView) findViewById(R.id.imageView);
-        Spinner city = (Spinner) findViewById(R.id.spinner);
+        citynames = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<String> adpter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerdata);
-        city.setAdapter(adpter);
+        citynames.setAdapter(adpter);
+        editname=(EditText)findViewById(R.id.editName);
+        editsurname=(EditText)findViewById(R.id.editSurname);
+        editemail=(EditText)findViewById(R.id.editEmail);
+        editpassword=(EditText)findViewById(R.id.editPassword);
+        editphnno=(EditText)findViewById(R.id.editPhone);
+        male=(RadioButton)findViewById(R.id.radioButtonMale);
+        female=(RadioButton)findViewById(R.id.radioButtonFemale);
+        checkBox2=(CheckBox)findViewById(R.id.checkBox2);
+        checkBox3=(CheckBox)findViewById(R.id.checkBox3);
+        checkBox4=(CheckBox)findViewById(R.id.checkBox4);
+        checkBox5=(CheckBox)findViewById(R.id.checkBox5);
+        imgview=(ImageView)findViewById(R.id.imageView);
+        btnAddData=(Button)findViewById(R.id.buttonsbm);
+        mydb = new DatabaseHelper(this);
+        addData();
     }
+    public void addData(){
+        btnAddData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name,surname,email,password,phnno,gender,city,photo;
+                StringBuffer hobby=new StringBuffer("");
+                name=editname.getText().toString();
+                surname=editsurname.getText().toString();
+                email=editemail.getText().toString();
+                password=editpassword.getText().toString();
+                phnno=editphnno.getText().toString();
 
+                if(male.isChecked()){
+                    gender=male.getText().toString();
+                }
+                else {
+                    gender = female.getText().toString();
+                }
+                city=citynames.getSelectedItem().toString();
+
+                if(checkBox2.isChecked()){
+                    hobby.append(checkBox2.getText().toString()+",");
+                }
+
+                if(checkBox3.isChecked()){
+                    hobby.append(checkBox3.getText().toString()+",");
+                }
+
+                if(checkBox4.isChecked()){
+                    hobby.append(checkBox4.getText().toString()+",");
+                }
+
+                if(checkBox5.isChecked()){
+                    hobby.append(checkBox5.getText().toString()+",");
+                }
+
+                photo="";
+                boolean isInserted=mydb.insertData(name,surname,email,password,phnno,gender,city,photo,hobby.toString());
+                if(isInserted){
+
+                    Toast.makeText(MainActivity.this,"Data inserted",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(MainActivity.this,"Data not inserted",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.main_activity_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-    public void changecolor(){
+
+    public void changecolor() {
 
         setTheme(R.style.RedTheme);
         setContentView(R.layout.activity_main);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -148,6 +223,8 @@ public class MainActivity extends AppCompatActivity {
             else if (requestCode == REQUEST_CAMERA)
                 onCaptureImageResult(data);
         }
+        Uri selected=data.getData();
+        
     }
 
     private void onCaptureImageResult(Intent data) {
@@ -155,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
 
-        File destination = new File(Environment.getExternalStorageDirectory(),
+         destination = new File(Environment.DIRECTORY_PICTURES,
                 System.currentTimeMillis() + ".jpg");
 
         FileOutputStream fo;

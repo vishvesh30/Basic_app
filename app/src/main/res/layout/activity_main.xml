@@ -18,7 +18,7 @@
         tools:context="com.example.vishvraj.basic_app.MainActivity">
 
         <EditText
-            android:id="@+id/editname"
+            android:id="@+id/editName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -216,7 +216,7 @@
             app:layout_rowSpan="2" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonsbm"
             android:layout_width="172dp"
             android:layout_height="wrap_content"
             android:text="Button"
