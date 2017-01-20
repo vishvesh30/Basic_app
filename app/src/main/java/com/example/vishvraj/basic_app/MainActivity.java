@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     Toast.makeText(MainActivity.this,"Data not inserted",Toast.LENGTH_LONG).show();
                 }
+
             }
         });
     }
@@ -224,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
                 onCaptureImageResult(data);
         }
         Uri selected=data.getData();
-        
+
     }
 
     private void onCaptureImageResult(Intent data) {
