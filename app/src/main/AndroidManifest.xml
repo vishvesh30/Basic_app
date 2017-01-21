@@ -21,7 +21,13 @@
         <activity
             android:name=".SplashScreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".data_list_ui"></activity>
+        <activity android:name=".showdata">
+            <intent-filter>
+                <action android:name="com.example.vishvraj.basic_app.showdata" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

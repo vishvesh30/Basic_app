@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.GridLayout
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_data_list_ui"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"        >
+
+        <TextView
+            android:id="@+id/editSurnamedemo"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:ems="10"
+            android:layout_marginLeft="10dp"
+            app:layout_column="1"
+            app:layout_row="1" />
+
+        <TextView
+            android:id="@+id/editPasswordDemo"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:ems="10"
+            android:layout_marginLeft="10dp"
+            app:layout_column="1"
+            app:layout_row="3" />
+
+        <TextView
+            android:id="@+id/editPhoneDemo"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:ems="10"
+            app:layout_column="1"
+            android:layout_marginLeft="10dp"
+            app:layout_row="4" />
+        <TextView
+            android:id="@+id/radioButtonMaleDemo"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:ems="10"
+            app:layout_column="1"
+            app:layout_row="5"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <TextView
+            android:id="@+id/textSurname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Surname"
+            app:layout_column="0"
+            app:layout_row="1" />
+
+        <TextView
+            android:id="@+id/textEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            app:layout_column="0"
+            app:layout_row="2" />
+
+        <TextView
+            android:id="@+id/textPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone no. "
+            app:layout_column="0"
+            app:layout_row="4" />
+
+
+        <TextView
+            android:id="@+id/textGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Gender"
+            app:layout_column="0"
+            app:layout_row="5" />
+
+        <TextView
+            android:id="@+id/textPwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password "
+            app:layout_column="0"
+            app:layout_row="3" />
+
+        <TextView
+            android:id="@+id/spinnerCityDemo"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:ems="10"
+            app:layout_column="1"
+            app:layout_row="6"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/textPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Photo"
+            app:layout_column="0"
+            app:layout_row="7" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="63dp"
+            android:layout_height="50dp"
+            android:onClick="selectImage"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+
+
+        <TextView
+            android:id="@+id/textCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="City"
+            app:layout_column="0"
+            app:layout_row="6" />
+
+
+
+        <TextView
+            android:id="@+id/checkBox2Demo"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:ems="10"
+            app:layout_column="1"
+            app:layout_row="8"
+            android:layout_marginLeft="10dp"
+            tools:theme="@style/AppTheme" />
+
+
+        <TextView
+            android:id="@+id/textHobby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hobby"
+            app:layout_column="0"
+
+            app:layout_gravity="center_vertical"
+            app:layout_row="8"
+            app:layout_rowSpan="2" />
+
+        <Button
+            android:id="@+id/buttonsbm"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_column="0"
+            app:layout_columnSpan="2"
+            app:layout_gravity="center"
+            app:layout_row="10"
+            app:layout_rowSpan="2"
+
+            android:elevation="0dp" />
+
+        <TextView
+            android:id="@+id/editNameDemo"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:ems="10"
+            android:text="data
+            "
+            app:layout_column="1"
+            app:layout_row="0"
+            android:layout_marginLeft="10dp"
+            />
+
+        <TextView
+            android:id="@+id/editEmailDemo"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:ems="10"
+            app:layout_column="1"
+            app:layout_row="2"
+            android:layout_marginLeft="10dp"/>
+
+
+    </android.support.v7.widget.GridLayout>
+
+</LinearLayout>

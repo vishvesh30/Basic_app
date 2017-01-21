@@ -125,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     Toast.makeText(MainActivity.this,"Data not inserted",Toast.LENGTH_LONG).show();
                 }
+                Intent intent=new Intent("com.example.vishvraj.basic_app.showdata");
+                startActivity(intent);
 
             }
         });
