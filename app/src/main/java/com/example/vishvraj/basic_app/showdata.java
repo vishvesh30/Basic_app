@@ -26,6 +26,7 @@ public class showdata extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(dataadapter);
         preparedata();
+        
 
     }
     private void preparedata(){
